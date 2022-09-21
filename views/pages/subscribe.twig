@@ -1,38 +1,42 @@
 {% extends "../main.twig" %}
 
 {% block stylesheet %}
-	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/subscribe.css">
 {% endblock %}
 
 {% block main %}
 
-<form method="post" action="/user">
 
-	<section>
-		<h1>Inscription</h1>
-		<article>
-			<div>
-				<label for="user">Pseudo</label>
-			</div>
-			<div>
-				<input type="texte" id="name" name="name">
-			</div>
-			<div>
-				<label for="mail">Mail</label>
-			</div>
-			<div>
-				<input type="text" id="mail" name="name">
-			</div>
-			<div>
-				<label for="password">Mot de passe</label>
-			</div>
-			<div>
-				<input type="text" id="password" name="password">
-			</div>
-			<button type="submit">Validez</button>
-
-		</article>
+	<div class="bg">
+		<img src="./images/fond/connexion.jpg" class="img-fluid">
+	</div>
+	<section style="text-align:center" >
+		<form method="post" action="/user" class = "inscription">
+			<h1>Inscription</h1>
+			<article>
+				<div>
+					<label for="user">Pseudo</label>
+				</div>
+				<div>
+					<input type="texte" id="name" name="name">
+				</div>
+				<div>
+					<label for="mail">Mail</label>
+				</div>
+				<div>
+					<input type="text" id="mail" name="mail">
+				</div>
+				<div>
+					<label for="password">Mot de passe</label>
+				</div>
+				<div>
+					<input type="text" id="password" name="password">
+				</div>
+				<div>
+					<button type="submit">Validez</button>
+				</div>
+			</article>
+		</form>
 	</section>
-
-</form>
 {% endblock %}
