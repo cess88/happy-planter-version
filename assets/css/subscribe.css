@@ -1,0 +1,19 @@
+.bg{
+    position: absolute;
+   
+    z-index: -1;
+}
+
+h1{
+    padding: 0;
+}
+
+.bg img {
+    width: 100vw;
+}
+
+.inscription{
+  border: 2px solid #005C53;
+background-color: #005C53;
+margin: 2%;
+}
