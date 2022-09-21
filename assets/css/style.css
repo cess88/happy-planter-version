@@ -1,3 +1,27 @@
+.nav {
+    background-color: #aba463;
+
+}
+
+/****************FOOTER***************/
+
+.footer {
+    background-color: #aba463;
+    color: white;
+    margin-top: 100px;
+    padding: 5px 10px 5px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.img {
+    padding-left: 10px;
+    border: 3px solid white;
+}
+
+a {
+    text-decoration: none;
+}
 /**********BARRE DE NAVIGATION*****/
 html{
     height: 100%;
