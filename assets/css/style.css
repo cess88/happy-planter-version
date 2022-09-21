@@ -1,3 +1,16 @@
-.nav {
-    background-color: #aba463;
+/**********BARRE DE NAVIGATION*****/
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#navbar-example2 {
+    background-color: #aba463 !important;
 }
