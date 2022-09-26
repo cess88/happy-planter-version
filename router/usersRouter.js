@@ -1,9 +1,19 @@
 import { Router } from "express"
-import { get } from "http"
 import usersModels from "../models/usersModels.js"
 import { cryptPassword } from "../customDependances/cryptPassword.js"
 
 const usersRouter = Router()
+
+
+/***********renvoi a l'accueil***********/
+
+usersRouter.get('/home',async (req, res)=>{
+    try{
+      res.render('pages/home.twig')
+    }catch (error){
+        res.send(error)
+    }
+})
 
 /***********Ajout d'un utilisateur avec protection password***********/
 
@@ -36,6 +46,9 @@ usersRouter.post('/user', async (req, res) => {
 
   //**************recup d utilisateurs***********/
 
+
+
+
 usersRouter.get('/users',async (req, res)=>{
     try{
        
@@ -47,7 +60,18 @@ usersRouter.get('/users',async (req, res)=>{
     }
 })
 
+
+
 //***************recup d'un utilisateur avec id ou mail*******/
+
+usersRouter.get('/connexion',async (req, res)=>{
+    try{
+      res.render('pages/connexion.twig')
+    }catch (error){
+        console.log(error);
+        res.send(error)
+    }
+})
 
 usersRouter.get('/user/findById/:id', async (req, res) => {
     try{
@@ -58,7 +82,7 @@ usersRouter.get('/user/findById/:id', async (req, res) => {
     }
 })
 
-usersRouter.get('/user/findByMail/:mail', async (req, res) => {
+usersRouter.get('/user/findBy/:mail', async (req, res) => {
     try{
         let user = await usersModels.findOne({_mail: req.params.mail});
         res.json(user)
