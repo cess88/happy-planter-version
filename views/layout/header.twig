@@ -1,23 +1,25 @@
-<header >
-	<nav id="navbar-example2" class="navbar navbar-light bg-light px-3" >
-		<img src="..\images\logo\happy-planter.png" alt="" width="100" height="100" >
-    <a class="navbar-brand" style="color:#005C53" href="#">HAPPY PLANTERS</a>
+<header>
+	<nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
+		<a href="home">
+			<img src="..\images\logo\happy-planter.png" alt="" width="100" height="100" class="{% if action == 'home'%} active {% endif %}">
+		</a>
+		<a class="navbar-brand" style="color:#005C53" href="#">HAPPY PLANTERS</a>
 		<ul class="nav nav-pills">
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" style="color:#005C53" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Menu</a>
+			<li class="nav-item dropstart">
+				<a class="nav-link dropdown-toggle dropstart" style="color:#005C53" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Menu</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a class="dropdown-item" href="#scrollspyHeading1">Inscription</a>
+						<a class="dropdown-item {% if action == " subscribe" %} active {% endif %}" href="/subscribe">Inscription</a>
 					</li>
 					<li>
-						<a class="dropdown-item" href="#scrollspyHeading2">Connexion</a>
+						<a class="dropdown-item {% if action == " connexion" %} active {% endif %}" href="/connexion">Connection</a>
 					</li>
 					<li>
-						<a class="dropdown-item" href="#scrollspyHeading3">Blog</a>
+						<a class="dropdown-item {% if action == " blog" %} active {% endif %} " href="/blog">Blog</a>
 					</li>
 					<li><hr class="dropdown-divider"></li>
 					<li>
-						<a class="dropdown-item" href="#scrollspyHeading4">Déconnexion</a>
+						<a class="dropdown-item {% if action == " deletone" %} active {% endif %} " href="/deletOne">Déconnexion</a>
 					</li>
 				</ul>
 			</li>

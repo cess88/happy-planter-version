@@ -1,0 +1,67 @@
+{% extends "../main.twig" %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/connect.css">
+{% endblock %}
+
+{% block main %}
+
+	<main class="row col-3 ">
+		<section>
+
+			<br>
+			<form action="/plantes" method="post" enctype="multipart/form-data">
+				<div>
+					{# debut multer (***** image *****) #}
+					<label id="fileImage" for="image">Choisir une image</label>
+					<input
+					type="file" name="image" id="image">
+				{# fin multer (***** image *****) #}
+				</div>
+				<div>
+					<span id="switchSentence">interieur</span>
+				</div>
+				<label class="switch">Type plante</label>
+				<select name="planteType" id="planteType">
+					<option value="exterieur">exterieur</option>
+					<option value="interieur">interieur</option>
+
+				</select>
+
+
+				<br>
+				<div>
+					<label for="name">Famille de la plante</label>
+					<input type="text" name="family" id="name" class="case">
+				</div>
+				<br>
+				<div>
+					<label for="name">Nom de la plante</label>
+					<input type="text" name="name" id="name" class="case">
+				</div>
+				<br>
+				<div>
+					<label for="name">Arrosage</label>
+					<input type="text" name="watering" id="name" class="case">
+				</div>
+				<br>
+				<div>
+					<label for="name">Ensoleillement</label>
+					<input type="text" name="exposure" id="name" class="case">
+				</div>
+				<br>
+				<div>
+					<label for="name">Rempotage</label>
+					<input type="text" name="repotting" id="name" class="case">
+				</div>
+				<br>
+				<input type="submit" value="envoyer sur repertoire" class="btn btn-secondary">
+
+
+			</form>
+		</section>
+
+	</main>
+
+{% endblock %}

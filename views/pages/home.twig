@@ -1,0 +1,25 @@
+{% extends "../main.twig" %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/connect.css">
+{% endblock %}
+
+{% block main %}
+	<div>
+		<img src="../images/logo/happy-planter.png" alt="" width="500" height="500" class="rounded mx-auto d-block">
+	</div>
+	<section style="text-align:center">
+	<div>
+		<label for="user">Entrez le nom de votre plante</label>
+	</div>
+	<br>
+	<div>
+		<input type="texte" id="planter" name="planter">
+	</div>
+	<br>
+	<div>
+		<button type="submit">Validez</button>
+	</div>
+	</section>
+{% endblock %}

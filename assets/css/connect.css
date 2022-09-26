@@ -1,0 +1,30 @@
+body{
+    background-color: #9FAF94;
+}
+h1{
+    padding: 10px;
+    background-color: #aba463;
+    margin: 150px 50px 0px 150px;
+    margin-top: 150px !important;
+    border-radius: 10px 10px 0px 0px;
+}
+
+
+
+.connect{
+  border: 2px solid #005C53;
+border-radius: 0px 0px 10px 10px;
+background-color: #005C53;
+margin: 0px 0px 30px 150px;
+}
+
+
+input{
+    border-radius: 0px 10px 0px 10px;
+    background-color: #D1D1BA;
+}
+button{
+    border-radius: 0px 10px 0px 10px;
+    margin-bottom: 40px;
+    background-color: #aba463;
+}

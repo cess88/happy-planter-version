@@ -1,0 +1,45 @@
+{% extends "../main.twig" %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/connect.css">
+	<link rel="stylesheet" href="css/directory.css">
+{% endblock %}
+
+{% block main %}
+	<section class="row">
+	<article class="col-4">
+					<img src="../images/fond/database.jpg" alt="" class="imgrepertoire" width="1000" height="800">
+				</article>
+		{% for plante in plantes %}
+			{% if plante.planteType == "interieur" %}
+				<article class="col-4">
+					<div class="fond card" style="background-color: {{plante.plantColor}}">
+						<div class="card-body">
+							<div><img src="../images/plantes/{{plante.image}}" alt=""></div>
+							<p class="card-text">{{plante.family}}</p>
+							<p class="card-text">{{plante.name}}</p>
+							<p class="card-text">{{plante.watering}}</p>
+							<p class="card-text">{{plante.exposure}}</p>
+							<p class="card-text">{{plante.repotting}}</p>
+						</div>
+					</div>
+				</article>
+			{% endif %}
+			{% if plante.planteType == "exterieur" %}
+				<article class="col-4">
+					<div class="fond card" style="background-color: {{plante.plantColor}}">
+						<div class="card-body">
+							<div><img src="../images/plantes/{{plante.image}}" alt=""></div>
+							<p class="card-text">{{plante.family}}</p>
+							<p class="card-text">{{plante.name}}</p>
+							<p class="card-text">{{plante.watering}}</p>
+							<p class="card-text">{{plante.exposure}}</p>
+							<p class="card-text">{{plante.repotting}}</p>
+						</div>
+					</div>
+				</article>
+			{% endif %}
+		{% endfor %}
+	</section>
+{% endblock %}

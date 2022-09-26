@@ -1,27 +1,36 @@
 import mongoose from "mongoose"
 
 const planteSchema = new mongoose.Schema({
-    Family: {
+    image: {
+        type: String,
+      },
+    family: {
         type: String,
         required: [true, "Famille obligatoire"]
     },
     
-    Name: {
+    name: {
         type: String,
         required: [true, "Name obligatoire"]
     },
-    Watering:  {
+    watering:  {
         type: String,
         required: [true, "Arrosage obligatoire"]
     },
-    Exposure:  {
+    exposure:  {
         type: String,
         required: [true, "Exposition obligatoire"]
     },
-    Repotting:  {
+    repotting:  {
         type: String,
         required: [true, "Rempotage obligatoire"]
     },
+    planteType:  {
+        type: String,
+        required: [true, "type obligatoire"]
+    },
+
+    plantColor:String,
     
 })
 
