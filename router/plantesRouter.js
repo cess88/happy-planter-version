@@ -29,9 +29,12 @@ const upload = multer({
 /*********cardDirectory****** */
 plantesRouter.get('/directory', async (req, res) => {
     try {
-        let plantes = await plantesModels.find();
+        let interiorPlants = await plantesModels.find({planteType:'interieur'});
+        let exteriorPlants = await plantesModels.find({planteType:'exterieur'});
+
         res.render('pages/directory.twig', {
-            plantes: plantes,
+          interiorPlants: interiorPlants,
+          exteriorPlants: exteriorPlants
         })
     } catch (error) {
         console.log(error);

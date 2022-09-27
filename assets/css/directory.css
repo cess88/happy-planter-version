@@ -1,7 +1,22 @@
-.imgrepertoire{
-    position: relative;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
+.img-fond{
+    background-image: url(../images/fond/database.jpg);
+    
 }
+.fond-interior {
+    background-color:#D1D1BA;
+    margin-top: 20px
+}
+.fond-exterior{
+    background-color: #9FAF94;
+    margin-top: 20px
+}
+    
+    .imgCard{
+        width: 100px;
+        height: 100px;
+    }
+    .card-body{
+       width: 400px;  
+        border-radius: 10%; 
+    }
+        

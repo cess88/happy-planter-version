@@ -1,5 +1,5 @@
 body{
-    background-color: #9FAF94;
+ background-color: #9FAF94;
 }
 h1{
     padding: 10px;
@@ -13,9 +13,9 @@ h1{
 
 .connect{
   border: 2px solid #005C53;
-border-radius: 0px 0px 10px 10px;
-background-color: #005C53;
-margin: 0px 0px 30px 150px;
+    border-radius: 0px 0px 10px 10px;
+    background-color: #005C53;
+    margin: 0px 0px 30px 150px;
 }
 
 

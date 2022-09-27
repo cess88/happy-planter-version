@@ -7,39 +7,82 @@
 {% endblock %}
 
 {% block main %}
-	<section class="row">
-	<article class="col-4">
-					<img src="../images/fond/database.jpg" alt="" class="imgrepertoire" width="1000" height="800">
-				</article>
-		{% for plante in plantes %}
-			{% if plante.planteType == "interieur" %}
-				<article class="col-4">
-					<div class="fond card" style="background-color: {{plante.plantColor}}">
-						<div class="card-body">
-							<div><img src="../images/plantes/{{plante.image}}" alt=""></div>
-							<p class="card-text">{{plante.family}}</p>
-							<p class="card-text">{{plante.name}}</p>
-							<p class="card-text">{{plante.watering}}</p>
-							<p class="card-text">{{plante.exposure}}</p>
-							<p class="card-text">{{plante.repotting}}</p>
+	<section class="img-fond container-fluid">
+		<article class="row">
+			<div class="row col-lg-4 offset-lg-4 col-md-3 offset-md-3 col-1">
+				{% for interiorCard in interiorPlants %}
+					<article class="col-12">
+						<div class="fond-interior card">
+							<div class="card-body row">
+								<div class="col-3 ">
+									<img src="../images/plantes/{{interiorCard.image}}" alt="" class="imgCard">
+								</div>
+								<div class="col-9">
+								<ul class="mx-2">
+									<li class="card-text">
+										Famille:
+										{{interiorCard.family}}
+									</li>
+									<li class="card-text ">
+										Nom plante:
+										{{interiorCard.name}}
+									</li>
+									<li class="card-text ">
+										Arrosage:
+										{{interiorCard.watering}}
+									</li>
+									<li class="card-text ">
+										Exposition:
+										{{interiorCard.exposure}}
+									</li>
+									<li class="card-text ">
+										Rampotage:
+										{{interiorCard.repotting}}
+									</li>
+									</ul>
+								</div>
+							</div>
 						</div>
-					</div>
-				</article>
-			{% endif %}
-			{% if plante.planteType == "exterieur" %}
-				<article class="col-4">
-					<div class="fond card" style="background-color: {{plante.plantColor}}">
-						<div class="card-body">
-							<div><img src="../images/plantes/{{plante.image}}" alt=""></div>
-							<p class="card-text">{{plante.family}}</p>
-							<p class="card-text">{{plante.name}}</p>
-							<p class="card-text">{{plante.watering}}</p>
-							<p class="card-text">{{plante.exposure}}</p>
-							<p class="card-text">{{plante.repotting}}</p>
+					</article>
+				{% endfor %}
+			</div>
+			<div class="row col-lg-4 col-md-3 col-1">
+				{% for exteriorCard in exteriorPlants %}
+					<article class=" col-12">
+						<div class="fond-exterior card">
+							<div class="card-body row">
+								<div class="col-3">
+									<img src="../images/plantes/{{exteriorCard.image}}" alt="" class="imgCard">
+								</div>
+								<div class="col-9">
+								<ul class= "mx-2">
+									<li class="card-text">
+										Famille:
+										{{exteriorCard.family}}
+									</li>
+									<li class="card-text ">
+										Nom plante:
+										{{exteriorCard.name}}
+									</li>
+									<li class="card-text ">
+										Arrosage:
+										{{exteriorCard.watering}}
+									</li>
+									<li class="card-text ">
+										Exposition:
+										{{exteriorCard.exposure}}
+									</li>
+									<li class="card-text ">
+										Rampotage:
+										{{exteriorCard.repotting}}
+									</li>
+									</ul>
+								</div>
+							</div>
 						</div>
-					</div>
-				</article>
-			{% endif %}
-		{% endfor %}
+					</article>
+				{% endfor %}
+			</div>
+		</article>
 	</section>
 {% endblock %}
