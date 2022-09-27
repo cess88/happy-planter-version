@@ -10,16 +10,30 @@
 		<img src="../images/logo/happy-planter.png" alt="" width="500" height="500" class="rounded mx-auto d-block">
 	</div>
 	<section style="text-align:center">
-	<div>
-		<label for="user">Entrez le nom de votre plante</label>
-	</div>
-	<br>
-	<div>
-		<input type="texte" id="planter" name="planter">
-	</div>
-	<br>
-	<div>
-		<button type="submit">Validez</button>
-	</div>
+		<form method="post" action="/findOnePlanter">
+			<div>
+				<label for="name">Entrez le nom de votre plante</label>
+			</div>
+			<br>
+			<div>
+				<input type="texte" id="planter" name="name">
+			</div>
+			<br>
+			<div>
+				<button type="submit">Validez</button>
+			</div>
+		</form>
 	</section>
+
+{# message toast #} 
+	<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" action="message">
+  <div class="toast-header">
+    <strong class="me-auto">Message</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">
+   <p> Oups!!! plante non répertoriée sur le site...</p>
+  </div>
+</div>
+{# message toast #} 
 {% endblock %}

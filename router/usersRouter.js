@@ -15,9 +15,11 @@ usersRouter.get('/home',async (req, res)=>{
     }
 })
 
+
+
 /***********Ajout d'un utilisateur avec protection password***********/
 
-usersRouter.get('/subscribe',async (req, res)=>{
+usersRouter.get('/addUser',async (req, res)=>{
     try{
       res.render('pages/subscribe.twig')
     }catch (error){
@@ -26,14 +28,14 @@ usersRouter.get('/subscribe',async (req, res)=>{
     }
 })
 
-usersRouter.post('/user', async (req, res) => {
+usersRouter.post('/addUser', async (req, res) => {
     try {
       let userByMail = await usersModels.findOne({mail: req.body.mail})
-      if (!userByMail) {                                               //*et avec le "if/else" message d'erreur sur html****//
+      if (!userByMail) {                                               
         req.body.password = await cryptPassword(req.body.password)
         let user = new usersModels(req.body)
         await user.save()
-        res.json(user) 
+        res.redirect('directory')
       }else{
         throw "Ce mail est deja utilisé";
       }
@@ -53,7 +55,7 @@ usersRouter.get('/users',async (req, res)=>{
     try{
        
         let users = await usersModels.find({},{__v:0, password: 0})
-        res.json(users)
+        res.render('collection.twig')
     }catch (error){
         console.log(error);
         res.send(error)
@@ -76,7 +78,7 @@ usersRouter.get('/connexion',async (req, res)=>{
 usersRouter.get('/user/findById/:id', async (req, res) => {
     try{
         let user = await usersModels.findOne({_id: req.params.id});
-        res.json(user)
+        res.render('connexion.twig')
     }catch(err) {
         res.send(err)
     }
@@ -85,7 +87,7 @@ usersRouter.get('/user/findById/:id', async (req, res) => {
 usersRouter.get('/user/findBy/:mail', async (req, res) => {
     try{
         let user = await usersModels.findOne({_mail: req.params.mail});
-        res.json(user)
+        res.render('connexion.twig')
     }catch(err) {
         res.send(err)
     }
@@ -96,7 +98,7 @@ usersRouter.get('/user/findBy/:mail', async (req, res) => {
   usersRouter.put('/user/:id', async(req, res)  => {
     try{
         let user = await usersModels.updateOne({_id: req.params.id})
-        res.json(user)
+        res.render('subscribe.twig')
     }catch(err){
         res.send(err)
     }
@@ -107,7 +109,7 @@ usersRouter.get('/user/findBy/:mail', async (req, res) => {
     usersRouter.delete('/user/:id' , async (req, res) => {
         try{
         let user = await usersModels.deleteOne({_id: req.params.id})
-        res.json(user)
+        res.render('subscribe.twig')
         }catch(err){
             res.send(err)
         }

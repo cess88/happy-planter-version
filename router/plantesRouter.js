@@ -1,5 +1,4 @@
 import { json, Router } from "express"
-import { get } from "http";
 import plantesModels from "../models/plantesModels.js"
 import multer from 'multer'
 const plantesRouter = Router()
@@ -25,18 +24,19 @@ const upload = multer({
 })
 /*********directory****** */
 
-
-/*********cardDirectory****** */
 plantesRouter.get('/directory', async (req, res) => {
-    try {
-        let plantes = await plantesModels.find();
-        res.render('pages/directory.twig', {
-            plantes: plantes,
-        })
-    } catch (error) {
-        console.log(error);
-    }
+  try {
+      let plantes = await plantesModels.find();
+      res.render('pages/directory.twig', {
+          plantes: plantes,
+      })
+  } catch (error) {
+      console.log(error);
+  }
 })
+
+/*********cardDirectory admin****** */
+
 
 plantesRouter.get('/cardDirectory',async (req, res)=>{
     try{
@@ -58,5 +58,22 @@ plantesRouter.post('/plantes',upload.single('image'), async ( req, res)=>{
 
     }
 })
+
+/***********envoi au repertoire***********/
+
+plantesRouter.post('/home',async (req, res)=>{
+  try{
+      let plantByName = await plantesModels.findOnePlanter({_id: req.name.id})
+      if (plantByName) {
+        req.session.plantes = plante._id
+        res.redirect('/directory')
+      }else{
+        res.redirect('message')
+      }
+  }catch (error){
+      res.send(error)
+  }
+})
+
 
 export default plantesRouter
