@@ -1,0 +1,56 @@
+.img-fond{
+    background-image: url(../images/fond/collection.png);
+}
+
+.ext{ 
+    border-radius: 10px;
+    text-align: center;
+    color:#005C53;
+    background-color: #9FAF94;
+    font-size: x-large;
+}
+
+.int{
+    border-radius: 10px;
+    text-align: center;
+    color:#005C53;
+    background-color: #D1D1BA;
+    font-size: x-large;
+}
+.card-int{
+    background-color: white;
+    
+     }   
+    
+     .card-ext{
+        background-color: white;
+     }
+    
+    
+    .fond-interior {
+        background-color:#D1D1BA;
+        margin-top: 20px;
+        
+    }
+    .fond-exterior{
+        background-color: #9FAF94;
+        margin-top: 20px
+    }
+        
+        .imgCard{
+            width: 100px;
+            height: 100px;
+       
+        }
+        .card-body{
+           width: 400px;  
+            border-radius: 10%; 
+        }
+        .mr{
+            margin-right: 3px;
+        }
+        
+        .test{
+            position: absolute;
+            bottom: 0;
+        }

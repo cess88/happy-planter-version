@@ -1,6 +1,6 @@
 import { Router } from "express"
 import usersModels from "../models/usersModels.js"
-import { cryptPassword } from "../customDependances/cryptPassword.js"
+import { comparePassword, cryptPassword } from "../customDependances/cryptPassword.js"
 
 const usersRouter = Router()
 
@@ -9,7 +9,9 @@ const usersRouter = Router()
 
 usersRouter.get('/home',async (req, res)=>{
     try{
-      res.render('pages/home.twig')
+      res.render('pages/home.twig',{
+        title: "HAPPY PLANTER"
+      })
     }catch (error){
         res.send(error)
     }
@@ -19,21 +21,23 @@ usersRouter.get('/home',async (req, res)=>{
 
 usersRouter.get('/subscribe',async (req, res)=>{
     try{
-      res.render('pages/subscribe.twig')
+      res.render('pages/subscribe.twig', {
+        title: "HAPPY PLANTER"
+      })
     }catch (error){
         console.log(error);
         res.send(error)
     }
 })
 
-usersRouter.post('/user', async (req, res) => {
+usersRouter.post('/subscribe', async (req, res) => {
     try {
       let userByMail = await usersModels.findOne({mail: req.body.mail})
       if (!userByMail) {                                               //*et avec le "if/else" message d'erreur sur html****//
         req.body.password = await cryptPassword(req.body.password)
         let user = new usersModels(req.body)
         await user.save()
-        res.json(user) 
+        res.redirect('/directory')
       }else{
         throw "Ce mail est deja utilisé";
       }
@@ -45,9 +49,6 @@ usersRouter.post('/user', async (req, res) => {
   })
 
   //**************recup d utilisateurs***********/
-
-
-
 
 usersRouter.get('/users',async (req, res)=>{
     try{
@@ -61,17 +62,20 @@ usersRouter.get('/users',async (req, res)=>{
 })
 
 
-
 //***************recup d'un utilisateur avec id ou mail*******/
 
 usersRouter.get('/connexion',async (req, res)=>{
     try{
-      res.render('pages/connexion.twig')
+      res.render('pages/connexion.twig',{
+        title: "HAPPY PLANTER"
+      })
     }catch (error){
         console.log(error);
         res.send(error)
     }
 })
+
+
 
 usersRouter.get('/user/findById/:id', async (req, res) => {
     try{
@@ -113,4 +117,25 @@ usersRouter.get('/user/findBy/:mail', async (req, res) => {
         }
     })
     
+
+usersRouter.post('/connexion', async (req, res) => {
+    try {
+     let user = await usersModels.findOne({mail: req.body.mail})
+     if (user) {
+        let isgoodpswd = await comparePassword(req.body.password, user.password)
+        if (isgoodpswd) {
+            req.session.user = user
+            res.redirect('directory')
+        }else{
+            throw "Mauvais password"
+        }
+     }else{
+        throw "Pas de compte crée! Allez sur le formulaire d'inscription!!"
+     }
+    } catch (error) {
+        console.log(error);
+        res.send(error);
+    }
+  })
+
 export default usersRouter

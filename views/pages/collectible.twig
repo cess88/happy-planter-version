@@ -3,13 +3,14 @@
 {% block stylesheet %}
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/connect.css">
-	<link rel="stylesheet" href="css/directory.css">
+	<link rel="stylesheet" href="css/collectible.css">
 {% endblock %}
 
 {% block main %}
 	<section class="img-fond container-fluid">
 		<article class="row ">
-			<div class="mr row mt-3 mb-3 col-lg-4 offset-lg-4 col-md-3 offset-md-3 col-1">
+			<div class="mr row mt-3 mb-3 col-lg-4 col-md-3 col-1">
+            <div class="int col-lg-7 pt-3 pb-3 mx-auto mb-3">Plantes intérieur</div>
 				{% for interiorCard in interiorPlants %}
 					<article class="card-int col-12">
 						<div class="mb-3 my-3 fond-interior card">
@@ -44,9 +45,30 @@
 							</div>
 						</div>
 					</article>
-				{% endfor %}
+				
+                {% endfor %}
 			</div>
-			<div class="row mt-3 mb-3 col-lg-4 col-md-3 col-1">
+            <div class=" row col-4">
+            <section style="text-align:center"  >
+		<h3 >Entrez  le nom de votre plante</h3>
+		<form method="post" style="margin: auto" action="/connexion" class = "connect">
+			<article>
+				<div>
+					<label for="user"></label>
+				</div>
+				<div>
+					<input type="text" id="text" name="text">
+				</div>
+				<div>
+					<button type="submit">Validez</button>
+				</div>
+			</article>
+		</form>
+	</section>
+            </div>
+            	
+			<div class="row  mt-3 mb-3 col-lg-4 col-md-3 col-1">
+            <div class="ext col-lg-7 pt-3 pb-3 mx-auto mb-3">Plantes extérieur</div>
 				{% for exteriorCard in exteriorPlants %}
 					<article class="card-ext col-12">
 						<div class="mr mb-3 my-3 fond-exterior card">

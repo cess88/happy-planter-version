@@ -25,21 +25,23 @@ const upload = multer({
 })
 /*********directory****** */
 
+plantesRouter.get('/directory', async (req, res) => {
+  try {
+      let interiorPlants = await plantesModels.find({planteType:'interieur'});
+      let exteriorPlants = await plantesModels.find({planteType:'exterieur'});
+
+      res.render('pages/directory.twig', {
+        interiorPlants: interiorPlants,
+        exteriorPlants: exteriorPlants,
+        title: "REPERTOIRE"
+      })
+  } catch (error) {
+      console.log(error);
+  }
+})
 
 /*********cardDirectory****** */
-plantesRouter.get('/directory', async (req, res) => {
-    try {
-        let interiorPlants = await plantesModels.find({planteType:'interieur'});
-        let exteriorPlants = await plantesModels.find({planteType:'exterieur'});
 
-        res.render('pages/directory.twig', {
-          interiorPlants: interiorPlants,
-          exteriorPlants: exteriorPlants
-        })
-    } catch (error) {
-        console.log(error);
-    }
-})
 
 plantesRouter.get('/cardDirectory',async (req, res)=>{
     try{
@@ -60,6 +62,36 @@ plantesRouter.post('/plantes',upload.single('image'), async ( req, res)=>{
     }catch (error){
 
     }
+})
+
+//******cardPlante****** */
+
+plantesRouter.get('/cardPlante/:plantId', async (req, res) => {
+  try {
+      let plant = await plantesModels.findOne({_id:req.params.plantId});
+      console.log(plant);
+      res.render('pages/cardPlante.twig', {
+       plant: plant
+      })
+  } catch (error) {
+      console.log(error);
+  }
+})
+/*********collection****** */
+
+plantesRouter.get('/collectible', async (req, res) => {
+  try {
+      let interiorPlants = await plantesModels.find({planteType:'interieur'});
+      let exteriorPlants = await plantesModels.find({planteType:'exterieur'});
+
+      res.render('pages/collectible.twig', {
+        interiorPlants: interiorPlants,
+        exteriorPlants: exteriorPlants,
+        title:"MA COLLECTION"
+      })
+  } catch (error) {
+      console.log(error);
+  }
 })
 
 export default plantesRouter

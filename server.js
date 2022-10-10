@@ -4,6 +4,7 @@ import "dotenv/config";
 import plantesRouter from "./router/plantesRouter.js";
 import usersRouter from "./router/usersRouter.js";
 import cors from 'cors'
+import session from "express-session";
 
 const db = process.env.BDD_URL
 const app = express()
@@ -13,6 +14,12 @@ app.use(cors())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static('./assets'));
 app.use(express.json())
+app.use(session({
+    secret: 'test',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false }
+}))
 app.use(router)
 router.use(usersRouter)
 router.use(plantesRouter)

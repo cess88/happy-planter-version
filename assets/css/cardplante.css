@@ -1,0 +1,57 @@
+.navbar {
+    padding-bottom: 40px;
+    padding-top: 40px;
+    border-bottom: solid #005C53;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    justify-content: center;
+    font-size: x-large;
+}
+
+.button{
+    font-size: x-large;
+    font-style: italic;
+    border-radius: 10px;
+    border: solid #005C53;
+    background-color: red;
+    color: black;
+    
+}
+
+.footer {
+    width: 100%;
+    border-top: solid #005C53;
+    background-color: white;
+    color: #005C53;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    justify-content: center;
+    text-align: center;
+    font-size: large;
+
+}
+
+.emplacementSoleil{
+    position: absolute;
+    top:450px;
+    left: 150px;
+    width: 200px;
+    
+}
+
+.carteFond {
+    position: relative;
+}
+.emplacementMiOmbre{
+    position: absolute;
+    top:350px;
+    left: 500px;
+    width: 120px;
+}
+.emplacementOmbre{
+    position: absolute;
+    top:650px;
+    left: 700px;
+    width: 130px;
+}
+

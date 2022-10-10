@@ -3,7 +3,7 @@
 		<a href="home">
 			<img src="..\images\logo\happy-planter.png" alt="" width="100" height="100" class="{% if action == 'home'%} active {% endif %}">
 		</a>
-		<a class="navbar-brand" style="color:#005C53" href="#">HAPPY PLANTERS</a>
+		<a class="navbar-brand" style="color:#FFFFFF" href="#">{{title}}</a>
 		<ul class="nav nav-pills">
 			<li class="nav-item dropstart">
 				<a class="nav-link dropdown-toggle dropstart" style="color:#005C53" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Menu</a>
@@ -12,7 +12,7 @@
 						<a class="dropdown-item {% if action == " subscribe" %} active {% endif %}" href="/subscribe">Inscription</a>
 					</li>
 					<li>
-						<a class="dropdown-item {% if action == " connexion" %} active {% endif %}" href="/connexion">Connection</a>
+						<a class="dropdown-item {% if action == " connexion" %} active {% endif %}" href="/connexion">Connexion</a>
 					</li>
 					<li>
 						<a class="dropdown-item {% if action == " blog" %} active {% endif %} " href="/blog">Blog</a>

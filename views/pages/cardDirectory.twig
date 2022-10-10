@@ -7,17 +7,21 @@
 
 {% block main %}
 
-	<main class="row col-3 ">
-		<section>
-
-			<br>
+	<main class="container col-3 ">
+		<section class="row mt-4 text-justify">
 			<form action="/plantes" method="post" enctype="multipart/form-data">
 				<div>
 					{# debut multer (***** image *****) #}
-					<label id="fileImage" for="image">Choisir une image</label>
-					<input
-					type="file" name="image" id="image">
-				{# fin multer (***** image *****) #}
+					<h4 class="mx-auto mb-4">
+					<strong>
+						<label id="fileImage" for="image">Choisir une image</label>
+						</strong>
+					</h4>
+					<p>
+						<input
+						type="file" name="image" id="image">
+					{# fin multer (***** image *****) #}
+					</p>
 				</div>
 				<div>
 					<label class="switch">Type plante</label>
@@ -28,33 +32,43 @@
 				</div>
 				<br>
 				<div>
-					<label for="name">Famille de la plante</label>
-					<input type="text" name="family" id="name" class="case">
-				</div>
-				<br>
-				<div>
-					<label for="name">Nom de la plante</label>
-					<input type="text" name="name" id="name" class="case">
-				</div>
-				<br>
-				<div>
-					<label for="name">Arrosage</label>
-					<input type="text" name="watering" id="name" class="case">
-				</div>
-				<br>
-				<div>
-					<label for="name">Ensoleillement</label>
-					<input type="text" name="exposure" id="name" class="case">
-				</div>
-				<br>
-				<div>
-					<label for="name">Rempotage</label>
-					<input type="text" name="repotting" id="name" class="case">
-				</div>
-				<br>
-				<input type="submit" value="envoyer sur repertoire" class="btn btn-secondary">
+					<p>
+						<label for="name">Famille de la plante</label>
+					</p>
+					<p>
+						<input type="text" name="family" id="name" class="case">
+					</p>
+					<p>
+						<label for="name">Nom de la plante</label>
+					</p>
+					<p>
+						<input type="text" name="name" id="name" class="case">
+					</p>
+					<p>
+						<label for="name">Arrosage</label>
+					</p>
+					<p>
+						<input type="text" name="watering" id="name" class="case">
+					</p>
+					<p>
+						<label for="name">Ensoleillement</label>
+					</p>
+					<p>
+					<select name="exposure" id="exposure">
+						<option value="soleil">Soleil</option>
+						<option value="mi-ombre">Mi ombre</option>
+						<option value="ombre">Ombre</option>
 
-
+					</select>
+					</p>
+					<p>
+						<label for="name">Rempotage</label>
+					</p>
+					<p>
+						<input type="text" name="repotting" id="name" class="case">
+					</p>
+				</div>
+				<input class="align-items-center mb-4" type="submit" value="Envoyer sur repertoire" class="btn btn-secondary">
 			</form>
 		</section>
 

@@ -3,6 +3,10 @@
 
 }
 
+.navbar-brand{
+    font-size: xx-large;
+}
+
 /****************FOOTER***************/
 
 .footer {
@@ -13,6 +17,7 @@
     justify-content: space-between;   
     width: 100%;
     bottom: 0;
+  
 }
 
 .img {

@@ -1,0 +1,20 @@
+<footer>
+	<div class="footer">
+
+		<div>
+			<img class="img-bouteille" src="../images/logo/bouteille.png" width="50px">
+			<span class="texte">1 Litre par semaine</span>
+		</div>
+		<div>
+			<img class="img-soleil" src="../images/logo/soleil.png" width="50px">
+			{% if plant.planteType == "exterieur" %}
+				<span class="texte ">Regarde bien ou je suis positionné dans le jardin et fait pareil!</span>
+			{% endif %}
+            	{% if plant.planteType == "interieur" %}
+				<span class="texte ">Regarde bien ou je suis positionné dans la pièce et fait pareil!</span>
+			{% endif %}
+
+		</div>
+
+	</div>
+</footer>
