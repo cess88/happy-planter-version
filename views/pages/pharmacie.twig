@@ -1,0 +1,25 @@
+{% extends "../main.twig" %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/connect.css">
+	<link rel="stylesheet" href="/css/pharmacie.css">
+{% endblock %}
+
+{% block main %}
+	<div id="slidesshow" class="module">
+		<div>
+			{% for bobo in plant.planteBobos %}
+				<div class="gauche">{{bobo.problem}}</div>
+			{% endfor %}
+		</div>
+		<div>
+			<img height="500px" src="/images/plantes/{{plant.image}}" alt=""class=" img-absolute cartebobo">
+		</div>
+		<div>
+			{% for bobo in plant.planteBobos %}
+				<div class="gauche">{{bobo.solution}}</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

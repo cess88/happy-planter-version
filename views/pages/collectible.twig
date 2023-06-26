@@ -2,109 +2,135 @@
 
 {% block stylesheet %}
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/connect.css">
 	<link rel="stylesheet" href="css/collectible.css">
 {% endblock %}
 
 {% block main %}
-	<section class="img-fond container-fluid">
-		<article class="row ">
-			<div class="mr row mt-3 mb-3 col-lg-4 col-md-3 col-1">
-            <div class="int col-lg-7 pt-3 pb-3 mx-auto mb-3">Plantes intérieur</div>
-				{% for interiorCard in interiorPlants %}
-					<article class="card-int col-12">
-						<div class="mb-3 my-3 fond-interior card">
-							<div class="card-body row">
+	<article class="row justify-content-around img-fond">
+		<div class="mr row mt-3 mb-3 col-lg-4">
+			<div class="int col-lg-7 pt-3 pb-3 mx-auto mb-3">Plantes intérieur</div>
+			{% for interiorCard in interiorPlants %}
+				<article class="card-int row d-flex justify-content-around card-int col-12">
+					<div class="mb-3 my-3 fond-interior card">
+						<div class="card-body row">
+							<a href="/collectible?search={{interiorCard.name}}" class="d-flex">
 								<div class="col-3 my-auto">
-									<img src="../images/plantes/{{interiorCard.image}}" alt="" class="imgCard">
+									<img class="img-responsive" src="../images/plantes/{{interiorCard.image}}" style="width:100%" alt="" class="imgCard">
+									<div class="button-sup mt-2">
+										<a href="deletePlant/{{interiorCard.id}}">
+											<button class="button-sup-int mt-2" type="submit">Supprimer</button>
+										</a>
+										<a href="pharmacie/{{interiorCard.id}}">
+											<button class="button-bobo-int mt-2" type="submit">Voir les bobos</button>
+										</a>
+									</div>
 								</div>
+
 								<div class="col-9">
-								<ul class="my-auto">
-									<li class="card-text">
-										Famille:
-										{{interiorCard.family}}
-									</li>
-									<li class="card-text ">
-										Nom plante:
-										{{interiorCard.name}}
-									</li>
-									<li class="card-text ">
-										Arrosage:
-										{{interiorCard.watering}}
-									</li>
-									<li class="card-text ">
-										Exposition:
-										{{interiorCard.exposure}}
-									</li>
-									<li class="card-text ">
-										Rampotage:
-										{{interiorCard.repotting}}
-									</li>
+									<ul class="my-auto">
+										<li class="card-text">
+											Famille:
+											{{interiorCard.family}}
+										</li>
+										<li class="card-text ">
+											Nom plante:
+											{{interiorCard.name}}
+										</li>
+										<li class="card-text ">
+											Arrosage:
+											{{interiorCard.watering}}
+										</li>
+										<li class="card-text ">
+											Exposition:
+											{{interiorCard.exposure}}
+										</li>
+										<li class="card-text ">
+											Rampotage:
+											{{interiorCard.repotting}}
+										</li>
 									</ul>
 								</div>
-							</div>
+							</a>
 						</div>
-					</article>
-				
-                {% endfor %}
+					</div>
+				</article>
+
+			{% endfor %}
+		</div>
+		<div class="row col-4 mb-3">
+			{% if plant %}
+				{% include "./cardPlante.twig" %}
+			{% else %}
+				<div class="error">{{error}}</div>
+			{% endif %}
+			<div class="tableCollect">
+				<section style="text-align:center">
+					<form method="get" style="margin: auto" action="/collectible" class="connect">
+						<h4 class="pt-3">Entrez le nom de votre plante</h4>
+						<article>
+							<div>
+								<label for="user"></label>
+							</div>
+							<div>
+								<input class="plantName col-6" type="text" id="planter" name="planter">
+							</div>
+							<div>
+								<button class="button-valid" type="submit">Validez</button>
+							</div>
+						</article>
+					</form>
+				</section>
 			</div>
-            <div class=" row col-4">
-            <section style="text-align:center"  >
-		<h3 >Entrez  le nom de votre plante</h3>
-		<form method="post" style="margin: auto" action="/connexion" class = "connect">
-			<article>
-				<div>
-					<label for="user"></label>
-				</div>
-				<div>
-					<input type="text" id="text" name="text">
-				</div>
-				<div>
-					<button type="submit">Validez</button>
-				</div>
-			</article>
-		</form>
-	</section>
-            </div>
-            	
-			<div class="row  mt-3 mb-3 col-lg-4 col-md-3 col-1">
-            <div class="ext col-lg-7 pt-3 pb-3 mx-auto mb-3">Plantes extérieur</div>
-				{% for exteriorCard in exteriorPlants %}
-					<article class="card-ext col-12">
-						<div class="mr mb-3 my-3 fond-exterior card">
-							<div class="card-body row">
+		</div>
+
+		<div class="row  mt-3 mb-3 col-lg-4">
+			<div class="ext col-lg-7 pt-3 pb-3 mx-auto mb-3">Plantes extérieur</div>
+			{% for exteriorCard in exteriorPlants %}
+				<article class="card-ext col-12">
+					<div class="mb-3 my-3 fond-exterior card">
+						<div class="card-body row">
+							<a href="/collectible?search={{interiorCard.name}}" class="d-flex">
+
 								<div class="col-3 my-auto">
-									<img src="../images/plantes/{{exteriorCard.image}}" alt="" class="imgCard">
+									<img class="img-responsive" src="../images/plantes/{{exteriorCard.image}}" style="width:100%" alt="" class="imgCard">
+									<div class="button-sup mt-2">
+										<a href="deletePlant/{{exteriorCard.id}}">
+											<button class="button-sup-ext mt-2" type="submit">Supprimer</button>
+										</a>
+										<a href="pharmacie/{{exteriorCard.id}}">
+											<button class="button-bobo-ext mt-2" type="submit">Voir les bobos</button>
+										</a>
+									</div>
 								</div>
 								<div class="col-9">
-								<ul class= "my-auto">
-									<li class="card-text">
-										Famille:
-										{{exteriorCard.family}}
-									</li>
-									<li class="card-text ">
-										Nom plante:
-										{{exteriorCard.name}}
-									</li>
-									<li class="card-text ">
-										Arrosage:
-										{{exteriorCard.watering}}
-									</li>
-									<li class="card-text ">
-										Exposition:
-										{{exteriorCard.exposure}}
-									</li>
-									<li class="card-text ">
-										Rampotage:
-										{{exteriorCard.repotting}}
-									</li>
+									<ul class="my-auto">
+										<li class="card-text">
+											Famille:
+											{{exteriorCard.family}}
+										</li>
+										<li class="card-text ">
+											Nom plante:
+											{{exteriorCard.name}}
+										</li>
+										<li class="card-text ">
+											Arrosage:
+											{{exteriorCard.watering}}
+										</li>
+										<li class="card-text ">
+											Exposition:
+											{{exteriorCard.exposure}}
+										</li>
+										<li class="card-text ">
+											Rampotage:
+											{{exteriorCard.repotting}}
+										</li>
 									</ul>
 								</div>
-							</div>
+							</a>
 						</div>
-					</article>
-				{% endfor %}
-			</div>
-		</article>
-	</section>
+					</div>
+				</article>
+			{% endfor %}
+		</div>
+	</article>
 {% endblock %}

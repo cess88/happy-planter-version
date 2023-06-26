@@ -14,6 +14,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, "Password obligatoire"]
     },
+    role:{
+        type:String,
+        default:"user"
+    },
+    collections:  [{type: mongoose.Schema.Types.ObjectId, ref:"plantes"}]
+    
 })
 
 const usersModels = mongoose.model("users", userSchema)

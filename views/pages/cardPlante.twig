@@ -1,35 +1,42 @@
-{% extends "../main.twig" %}
 
-{% block stylesheet %}
 
-	<link rel="stylesheet" href="../css/cardPlante.css">
-
-{% endblock %}
+<div class="main">
 {% block header %}
 	{% include "/layout/header-card.twig"%}
 {% endblock %}
 
 {% block main %}
 
-	<div class="main container-fluid">
-		<div class="row">
+	
+		<div>
 			{% if plant.planteType == "interieur" %}
-				<img src="../images/fond/piece.png" alt="" class="carteInterieur">
-			{% endif %}
-			{% if plant.planteType == "exterieur" %}
-            <div class="carteFond">
-            <img src="../images/fond/exterieur.jpg" alt="" class="carteExterieur">
-            </div>	
-			{% endif %}
-			<div class="photo">
-				<div class="row col-2">
-					<img src="../images/plantes/{{plant.image}}"width="100%" alt="" class="{% if plant.exposure == "soleil" %}emplacementSoleil {% endif %} {% if plant.exposure == "mi-ombre" %}emplacementMiOmbre {% endif %}{% if plant.exposure == "ombre" %}emplacementOmbre {% endif %}">
+				
+				<div class="carteFond">
+					<img src="../images/fond/interieur.jpg" alt="" class="img-fluid carteInterieur">
+					<div class="{% if plant.exposure == "soleil" %}emplacementIntSoleil {% endif %} {% if plant.exposure == "mi-ombre" %}emplacementIntMiOmbre {% endif %}{% if plant.exposure == "ombre" %}emplacementIntOmbre {% endif %}">
+						<div class="row col-2">
+							<img  src="../images/plantes/{{plant.image}}"  alt="" class="img-fluid ">
+						</div>
+						<button class="button" type="submit">Alerte arrosage!!</button>
 					</div>
-				<button class=" button col-2" type="submit">Alerte arrosage!!</button>
-			</div>
+				</div>
+			{% endif %}
+
+			{% if plant.planteType == "exterieur" %}
+				<div class="carteFond">
+					<img src="../images/fond/exterieur.jpg" alt="" class="img-fluid carteExterieur">
+					<div class="{% if plant.exposure == "soleil" %}emplacementExtSoleil {% endif %} {% if plant.exposure == "mi-ombre" %}emplacementExtMiOmbre {% endif %}{% if plant.exposure == "ombre" %}emplacementExtOmbre {% endif %}">
+						<div class="row col-2">
+							<img  src="../images/plantes/{{plant.image}}" alt="" class="img-fluid ">
+						</div>
+						<button class="button" type="submit">Alerte arrosage!!</button>
+					</div>
+				</div>
+			{% endif %}
 		</div>
-	</div>
+	
 {% endblock %}
 {% block footer %}
 	{% include "/layout/footer-card.twig"%}
 {% endblock %}
+</div>

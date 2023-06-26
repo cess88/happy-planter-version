@@ -5,8 +5,22 @@ let authGuard = async (req, res, next) =>{
     if (user) {
         next()
     }else{
-        res.redirect("/login")
+        res.redirect("/connexion")
     }
 }
 
-export default authGuard
+let adminGuard = async (req, res, next) =>{
+    let user = await usersModels.findOne({_id: req.session.user})
+    if (user) {
+        if (user.role =="admin" ) {
+            next()
+        }else{
+            res.redirect("/connexion")
+        }
+    }else{
+        res.redirect("/connexion")
+    }
+}
+
+export  {authGuard}
+export {adminGuard}

@@ -1,56 +1,154 @@
-.img-fond{
+.img-fond {
     background-image: url(../images/fond/collection.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.ext{ 
+.ext {
     border-radius: 10px;
     text-align: center;
-    color:#005C53;
+    color: #005C53;
     background-color: #9FAF94;
     font-size: x-large;
+    height: fit-content;
+    
 }
 
-.int{
+.int {
     border-radius: 10px;
     text-align: center;
-    color:#005C53;
+    color: #005C53;
     background-color: #D1D1BA;
     font-size: x-large;
+    height: fit-content;
+}
+
+.card-int {
+    background-color: white;
+
+}
+
+.card-ext {
+    background-color: white;
+}
+
+
+.fond-interior {
+    background-color: #D1D1BA;
+    margin-top: 20px;
+  
+}
+
+.fond-exterior {
+    background-color: #9FAF94;
+    margin-top: 20px
 }
 .card-int{
-    background-color: white;
+    margin:auto
+}
+.imgCard {
+    width: 100px;
+    height: 100px;
+
+}
+
+.card-body {
+    width: 100%;
+    border-radius: 10%;
+}
+
+.tableau{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+
+}
+.tableCollect{
+    background-color: #005C53;
+    margin-top: 20px;
+    margin-bottom: auto;
+    padding-bottom: 30px;
+ 
+
+
+}
+.plantName{
+    border-radius: 0px 10px 0px 10px;
+    background-color: #D1D1BA;
+   
+}
+
+.button-sup-int{
+    border-radius: 0px 10px 0px 10px;
+    background-color:#D1D1BA;
+    color: red;
+    display: flex;
+    justify-content: center;  
+  
+}
+.button-sup-ext{
+    border-radius: 0px 10px 0px 10px;
+    background-color: #9FAF94;
+    color: red;
+    display: flex;
+    justify-content: center;  
+  
+}
+.button-bobo-int{
+    border-radius: 0px 10px 0px 10px;
+    background-color:#D1D1BA;
+    color: red;
+    display: flex;
+    justify-content: center; 
+    white-space: pre;  
+}
+.button-bobo-ext{
+    border-radius: 0px 10px 0px 10px;
+    background-color:#9FAF94;;
+    color: red;
+    display: flex;
+    justify-content: center;
+    white-space: pre;  
+}
+.button-valid{
+    border-radius: 0px 10px 0px 10px;
+    background-color: #9FAF94;
+    margin-top: 20px;
+    justify-content: center;
+   
     
-     }   
-    
-     .card-ext{
-        background-color: white;
-     }
-    
-    
-    .fond-interior {
-        background-color:#D1D1BA;
-        margin-top: 20px;
-        
+}
+.tableau section{
+    position: relative; 
+    width: inherit;   
+}
+.tableau section form{
+    position: absolute;
+    bottom: 0;
+    left:30%
+
+}
+
+main{
+
+    padding: 0;
+}
+.error{
+    color: red;
+    font-weight:bold;
+    margin-top: 20px;
+    padding: O;
+    font-size: x-large;
+    font-style: italic;
+    text-align: center;
+
+}
+@media screen and (max-width: 990px) {
+    .tableau{
+      margin-top: 0px;
     }
-    .fond-exterior{
-        background-color: #9FAF94;
-        margin-top: 20px
-    }
-        
-        .imgCard{
-            width: 100px;
-            height: 100px;
-       
-        }
-        .card-body{
-           width: 400px;  
-            border-radius: 10%; 
-        }
-        .mr{
-            margin-right: 3px;
-        }
-        
-        .test{
-            position: absolute;
-            bottom: 0;
-        }
+}
+
+

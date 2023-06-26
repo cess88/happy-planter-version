@@ -3,35 +3,37 @@ import mongoose from "mongoose"
 const planteSchema = new mongoose.Schema({
     image: {
         type: String,
-      },
+    },
     family: {
         type: String,
         required: [true, "Famille obligatoire"]
     },
-    
+
     name: {
         type: String,
         required: [true, "Name obligatoire"]
     },
-    watering:  {
+    watering: {
         type: String,
         required: [true, "Arrosage obligatoire"]
     },
-    exposure:  {
+    exposure: {
         type: String,
         required: [true, "Exposition obligatoire"]
     },
-    repotting:  {
+    repotting: {
         type: String,
         required: [true, "Rempotage obligatoire"]
     },
-    planteType:  {
+    planteType: {
         type: String,
         required: [true, "type obligatoire"]
     },
 
-    plantColor:String,
-    
+    planteBobos: [{ type: mongoose.Schema.Types.ObjectId, ref: "bobos" }],
+
+    plantColor: String,
+
 })
 
 const plantesModels = mongoose.model("plantes", planteSchema)

@@ -9,10 +9,10 @@
 
 	<main class="container col-3 ">
 		<section class="row mt-4 text-justify">
-			<form action="/plantes" method="post" enctype="multipart/form-data">
+			<form {% if plant %}action="/updatePlant/{{plant._id}}"{% else %} action="/plantes"{% endif %} method="post" enctype="multipart/form-data">
 				<div>
 					{# debut multer (***** image *****) #}
-					<h4 class="mx-auto mb-4">
+					<h4 class="row mx-auto mb-4">
 					<strong>
 						<label id="fileImage" for="image">Choisir une image</label>
 						</strong>
@@ -26,8 +26,8 @@
 				<div>
 					<label class="switch">Type plante</label>
 					<select name="planteType" id="planteType">
-						<option value="exterieur">exterieur</option>
-						<option value="interieur">interieur</option>
+						<option {% if plant.planteType == "exterieur" %}selected{% endif %} value="exterieur">exterieur</option>
+						<option {% if plant.planteType == "interieur" %}selected{% endif %} value="interieur">interieur</option>
 					</select>
 				</div>
 				<br>
@@ -36,28 +36,28 @@
 						<label for="name">Famille de la plante</label>
 					</p>
 					<p>
-						<input type="text" name="family" id="name" class="case">
+						<input type="text" name="family" id="name" class="case" value={{plant.family}}>
 					</p>
 					<p>
 						<label for="name">Nom de la plante</label>
 					</p>
 					<p>
-						<input type="text" name="name" id="name" class="case">
+						<input type="text" name="name" id="name" class="case" value={{plant.name}}>
 					</p>
 					<p>
 						<label for="name">Arrosage</label>
 					</p>
 					<p>
-						<input type="text" name="watering" id="name" class="case">
+						<input type="text" name="watering" id="name" class="case" value={{plant.watering}}>
 					</p>
 					<p>
 						<label for="name">Ensoleillement</label>
 					</p>
 					<p>
 					<select name="exposure" id="exposure">
-						<option value="soleil">Soleil</option>
-						<option value="mi-ombre">Mi ombre</option>
-						<option value="ombre">Ombre</option>
+						<option {% if plant.exposure == "soleil" %}selected{% endif %} value="soleil">Soleil</option>
+						<option {% if plant.exposure == "mi-ombre" %}selected{% endif %} value="mi-ombre">Mi ombre</option>
+						<option {% if plant.exposure == "ombre" %}selected{% endif %} value="ombre">Ombre</option>
 
 					</select>
 					</p>
@@ -65,8 +65,47 @@
 						<label for="name">Rempotage</label>
 					</p>
 					<p>
-						<input type="text" name="repotting" id="name" class="case">
+						<input type="text" name="repotting" id="name" class="case" value={{plant.repotting}}>
 					</p>
+					<p>
+						<label for="name">BOBO 1</label>
+					</p>
+					<p>
+						<input type="text" name="firstbobo" id="name" class="case">
+					</p>
+					<p>
+						<label for="name">SOLUTION 1</label>
+					</p>
+					<p>
+						<input type="text" name="firstsolution" id="name" class="case" >
+					</p>
+					<p>
+						<label for="name">BOBO 2</label>
+					</p>
+					<p>
+						<input type="text" name="secondbobo" id="name" class="case">
+					</p>
+
+					<p>
+						<label for="name">SOLUTION 2</label>
+					</p>
+					<p>
+						<input type="text" name="secondsolution" id="name" class="case">
+					</p>
+
+					<p>
+						<label for="name">BOBO 3</label>
+					</p>
+					<p>
+						<input type="text" name="thirdbobo" id="name" class="case">
+					</p>
+					<p>
+						<label for="name">SOLUTION 3</label>
+					</p>
+					<p>
+						<input type="text" name="thirdsolution" id="name" class="case">
+					</p>
+					
 				</div>
 				<input class="align-items-center mb-4" type="submit" value="Envoyer sur repertoire" class="btn btn-secondary">
 			</form>

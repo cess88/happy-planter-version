@@ -1,4 +1,4 @@
-.navbar {
+.header-calendar {
     padding-bottom: 40px;
     padding-top: 40px;
     border-bottom: solid #005C53;
@@ -6,19 +6,28 @@
     font-family: 'Times New Roman', Times, serif;
     justify-content: center;
     font-size: x-large;
+    text-align: center;
+    padding: 0px;
 }
+.header-card {
+    padding: 0px;
+    margin-top: 20px;
+}
+
 
 .button{
-    font-size: x-large;
     font-style: italic;
-    border-radius: 10px;
-    border: solid #005C53;
-    background-color: red;
     color: black;
-    
+    font-size: xx-small;
+    border-radius: 0px 10px 0px 10px;
 }
 
-.footer {
+#header-card-title {
+    font-weight: bold; 
+    align-items: center !important; 
+}
+
+.footer-card {
     width: 100%;
     border-top: solid #005C53;
     background-color: white;
@@ -31,27 +40,60 @@
 
 }
 
-.emplacementSoleil{
+.carteFond {
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.carteFond img{
+    
+    width: 200%;
+}
+
+.emplacementIntSoleil{
     position: absolute;
-    top:450px;
-    left: 150px;
-    width: 200px;
+    top: 45%;
+    left: 50%;
+    width: 100%;
     
 }
 
-.carteFond {
-    position: relative;
-}
-.emplacementMiOmbre{
+.emplacementIntMiOmbre{
     position: absolute;
-    top:350px;
-    left: 500px;
-    width: 120px;
+    top: 80%;
+    left: 70%;
+    width: 100%;
 }
-.emplacementOmbre{
+.emplacementIntOmbre{
     position: absolute;
-    top:650px;
-    left: 700px;
-    width: 130px;
+    top: 60%;
+    left: 15%;
+    width: 100%;
 }
 
+.emplacementExtSoleil{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 100%;
+    
+}
+
+.emplacementExtMiOmbre{
+    position: absolute;
+    top: 30%;
+    left: 60%;
+    width: 100%;
+}
+.emplacementExtOmbre{
+    position: absolute;
+    top: 70%;
+    left: 70%;
+    width: 100%;
+}
+.photo{
+    position: absolute;
+    width: 100%;
+   
+}

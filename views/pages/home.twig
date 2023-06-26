@@ -3,21 +3,39 @@
 {% block stylesheet %}
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/connect.css">
+	<style>
+		body {
+			background-image: url('../images/fond/accueil.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		main {
+			background-color: rgba(100%, 100%, 100%, 0.6);
+		}
+	</style>
 {% endblock %}
 
 {% block main %}
+
+	<form method="get" action="/directory" style="text-align:center">
+		<div class="titre">
+			<label for="user">Entrez le nom de votre plante</label>
+		</div>
+		<br>
+		<div>
+			<input type="texte" id="planter" name="planter">
+		</div>
+		<br>
+		<div>
+			<button type="submit">Validez</button>
+		</div>
+	</form>
+{% endblock %}
+
+{% block footer %}
 	
-	<section style="text-align:center">
-	<div class= "titre">
-		<label for="user">Entrez le nom de votre plante</label>
-	</div>
-	<br>
-	<div>
-		<input type="texte" id="planter" name="planter">
-	</div>
-	<br>
-	<div>
-		<button type="submit">Validez</button>
-	</div>
-	</section>
+	{% include "../layout/footer-home.twig" %}
 {% endblock %}

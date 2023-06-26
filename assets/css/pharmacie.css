@@ -1,0 +1,23 @@
+#slidesshow{
+    justify-content: space-around;
+    display: flex;
+    content: "";
+}
+.gauche{
+    padding:center;
+    margin-top: 70px;
+    border: solid #005C53 3px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.droite{
+    padding:center;
+    margin-top: 70px;
+    border: solid #005C53 3px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}

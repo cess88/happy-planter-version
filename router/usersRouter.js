@@ -37,6 +37,7 @@ usersRouter.post('/subscribe', async (req, res) => {
         req.body.password = await cryptPassword(req.body.password)
         let user = new usersModels(req.body)
         await user.save()
+        req.session.user = user._id
         res.redirect('/directory')
       }else{
         throw "Ce mail est deja utilisé";
@@ -48,23 +49,7 @@ usersRouter.post('/subscribe', async (req, res) => {
     }
   })
 
-  //**************recup d utilisateurs***********/
-
-usersRouter.get('/users',async (req, res)=>{
-    try{
-       
-        let users = await usersModels.find({},{__v:0, password: 0})
-        res.json(users)
-    }catch (error){
-        console.log(error);
-        res.send(error)
-    }
-})
-
-
-//***************recup d'un utilisateur avec id ou mail*******/
-
-usersRouter.get('/connexion',async (req, res)=>{
+  usersRouter.get('/connexion',async (req, res)=>{
     try{
       res.render('pages/connexion.twig',{
         title: "HAPPY PLANTER"
@@ -75,49 +60,7 @@ usersRouter.get('/connexion',async (req, res)=>{
     }
 })
 
-
-
-usersRouter.get('/user/findById/:id', async (req, res) => {
-    try{
-        let user = await usersModels.findOne({_id: req.params.id});
-        res.json(user)
-    }catch(err) {
-        res.send(err)
-    }
-})
-
-usersRouter.get('/user/findBy/:mail', async (req, res) => {
-    try{
-        let user = await usersModels.findOne({_mail: req.params.mail});
-        res.json(user)
-    }catch(err) {
-        res.send(err)
-    }
-})
-
-  //**************modifs d'un utilisateur***********/
-
-  usersRouter.put('/user/:id', async(req, res)  => {
-    try{
-        let user = await usersModels.updateOne({_id: req.params.id})
-        res.json(user)
-    }catch(err){
-        res.send(err)
-    }
-  })
-
-    //**************suppression d'un utilisateur***********/
-
-    usersRouter.delete('/user/:id' , async (req, res) => {
-        try{
-        let user = await usersModels.deleteOne({_id: req.params.id})
-        res.json(user)
-        }catch(err){
-            res.send(err)
-        }
-    })
     
-
 usersRouter.post('/connexion', async (req, res) => {
     try {
      let user = await usersModels.findOne({mail: req.body.mail})
@@ -125,9 +68,9 @@ usersRouter.post('/connexion', async (req, res) => {
         let isgoodpswd = await comparePassword(req.body.password, user.password)
         if (isgoodpswd) {
             req.session.user = user
-            res.redirect('directory')
+            res.redirect('collectible')
         }else{
-            throw "Mauvais password"
+            throw "Mauvais password !"
         }
      }else{
         throw "Pas de compte crée! Allez sur le formulaire d'inscription!!"
@@ -137,5 +80,26 @@ usersRouter.post('/connexion', async (req, res) => {
         res.send(error);
     }
   })
+
+  usersRouter.get('/logout' , async (req, res) => {
+    try{
+    
+       req.session.destroy()
+       res.redirect('connexion')
+    }catch(err){
+        res.send(err)
+    }
+})
+
+
+usersRouter.get('/params' , async (req, res) => {
+  try{
+     res.render('./pages/params.twig')
+  }catch(err){
+      res.send(err)
+  }
+})
+
+
 
 export default usersRouter
