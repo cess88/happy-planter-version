@@ -133,11 +133,11 @@ plantesRouter.get('/collectible', authGuard, async (req, res) => {
   try {
     let error;
     let plant;
-    let user = await usersModels.findOne({ _id: req.session.user }).populate('collections')
+    let user = await usersModels.findOne({ _id: req.session.user }).populate('collections.plant')
     let collections = user.collections
     if (req.query.planter) {
       plant = collections.find((obj) => {
-        if (obj.name == decodeURI(req.query.planter)) {
+        if (obj.plant.name == decodeURI(req.query.planter)) {
           return obj
         }
       })
@@ -147,12 +147,12 @@ plantesRouter.get('/collectible', authGuard, async (req, res) => {
       }
     }
     let interiorPlants = collections.filter(function (obj) {
-      if (obj.planteType == "interieur") {
+      if (obj.plant.planteType == "interieur") {
         return obj;
       }
     })
     let exteriorPlants = collections.filter(function (obj) {
-      if (obj.planteType == "exterieur") {
+      if (obj.plant.planteType == "exterieur") {
         return obj;
       }
     })
@@ -172,11 +172,12 @@ plantesRouter.get('/collectible', authGuard, async (req, res) => {
 
 plantesRouter.get('/addPlantToCollection/:id', authGuard, async (req, res) => {
   try {
+    const currentDate = new Date().toISOString().split("T")[0]; // Récupère la date actuelle au format YYYY-MM-DD
     let user = await usersModels.findOne({ _id: req.session.user }).populate('collections')
     let arrayCollections = user.collections
     let obj = arrayCollections.find(o => o._id == req.params.id);
     if (!obj) {
-      await usersModels.updateOne({ _id: req.session.user }, { $push: { collections: req.params.id } })
+      await usersModels.updateOne({ _id: req.session.user },  { $push: { collections: { plant: req.params.id, date: currentDate } } })
       res.redirect('/collectible')
     } else {
       req.session.error = 'Vous avez déja cette plante dans votre collection.'
@@ -208,6 +209,16 @@ plantesRouter.get('/pharmacie/:id', async (req, res) => {
   }
 })
 
+plantesRouter.get('/calendar/:id', async (req, res) => {
+  try {
+    let plant = await plantesModels.findOne({ _id: req.params.id })
+    res.render('pages/calendar.twig', {
+      plant: plant,
+    })
+  } catch (error) {
+    console.log(error);
+  }
+})
 
 
 export default plantesRouter

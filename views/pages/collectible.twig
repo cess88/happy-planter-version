@@ -13,15 +13,18 @@
 				<article class="card-int row d-flex justify-content-around card-int col-12">
 					<div class="mb-3 my-3 fond-interior card">
 						<div class="card-body row">
-							<a href="/collectible?search={{interiorCard.name}}" class="d-flex">
+							<a href="/collectible?search={{interiorCard.plant.name}}" class="d-flex">
 								<div class="col-3 my-auto">
-									<img class="img-responsive" src="../images/plantes/{{interiorCard.image}}" style="width:100%" alt="" class="imgCard">
+									<img class="img-responsive" src="../images/plantes/{{interiorCard.plant.image}}" style="width:100%" alt="" class="imgCard">
 									<div class="button-sup mt-2">
-										<a href="deletePlant/{{interiorCard.id}}">
+										<a href="deletePlant/{{interiorCard.plant.id}}">
 											<button class="button-sup-int mt-2" type="submit">Supprimer</button>
 										</a>
-										<a href="pharmacie/{{interiorCard.id}}">
+										<a href="pharmacie/{{interiorCard.plant.id}}">
 											<button class="button-bobo-int mt-2" type="submit">Voir les bobos</button>
+										</a>
+										<a href="calendar/{{interiorCard.plant.id}}">
+											<button class="button-bobo-ext mt-2" type="submit">Alerte arrosage</button>
 										</a>
 									</div>
 								</div>
@@ -30,23 +33,23 @@
 									<ul class="my-auto">
 										<li class="card-text">
 											Famille:
-											{{interiorCard.family}}
+											{{interiorCard.plant.family}}
 										</li>
 										<li class="card-text ">
 											Nom plante:
-											{{interiorCard.name}}
+											{{interiorCard.plant.name}}
 										</li>
 										<li class="card-text ">
 											Arrosage:
-											{{interiorCard.watering}}
+											{{interiorCard.plant.watering}}
 										</li>
 										<li class="card-text ">
 											Exposition:
-											{{interiorCard.exposure}}
+											{{interiorCard.plant.exposure}}
 										</li>
 										<li class="card-text ">
 											Rampotage:
-											{{interiorCard.repotting}}
+											{{interiorCard.plant.repotting}}
 										</li>
 									</ul>
 								</div>
@@ -89,16 +92,19 @@
 				<article class="card-ext col-12">
 					<div class="mb-3 my-3 fond-exterior card">
 						<div class="card-body row">
-							<a href="/collectible?search={{interiorCard.name}}" class="d-flex">
+							<a href="/collectible?search={{exteriorCard.plant.name}}" class="d-flex">
 
 								<div class="col-3 my-auto">
-									<img class="img-responsive" src="../images/plantes/{{exteriorCard.image}}" style="width:100%" alt="" class="imgCard">
+									<img class="img-responsive" src="../images/plantes/{{exteriorCard.plant.image}}" style="width:100%" alt="" class="imgCard">
 									<div class="button-sup mt-2">
-										<a href="deletePlant/{{exteriorCard.id}}">
+										<a href="deletePlant/{{exteriorCard.plant.id}}">
 											<button class="button-sup-ext mt-2" type="submit">Supprimer</button>
 										</a>
-										<a href="pharmacie/{{exteriorCard.id}}">
+										<a href="pharmacie/{{exteriorCard.plant.id}}">
 											<button class="button-bobo-ext mt-2" type="submit">Voir les bobos</button>
+										</a>
+										<a href="calendar/{{exteriorCard.plant.id}}">
+											<button class="button-bobo-ext mt-2" type="submit">Alerte arrosage</button>
 										</a>
 									</div>
 								</div>
@@ -106,23 +112,23 @@
 									<ul class="my-auto">
 										<li class="card-text">
 											Famille:
-											{{exteriorCard.family}}
+											{{exteriorCard.plant.family}}
 										</li>
 										<li class="card-text ">
 											Nom plante:
-											{{exteriorCard.name}}
+											{{exteriorCard.plant.name}}
 										</li>
 										<li class="card-text ">
 											Arrosage:
-											{{exteriorCard.watering}}
+											{{exteriorCard.plant.watering}}
 										</li>
 										<li class="card-text ">
 											Exposition:
-											{{exteriorCard.exposure}}
+											{{exteriorCard.plant.exposure}}
 										</li>
 										<li class="card-text ">
 											Rampotage:
-											{{exteriorCard.repotting}}
+											{{exteriorCard.plant.repotting}}
 										</li>
 									</ul>
 								</div>

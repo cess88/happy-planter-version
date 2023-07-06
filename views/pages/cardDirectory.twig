@@ -9,12 +9,12 @@
 
 	<main class="container col-3 ">
 		<section class="row mt-4 text-justify">
-			<form {% if plant %}action="/updatePlant/{{plant._id}}"{% else %} action="/plantes"{% endif %} method="post" enctype="multipart/form-data">
+			<form {% if plant %} action="/updatePlant/{{plant._id}}" {% else %} action="/plantes" {% endif %} method="post" enctype="multipart/form-data">
 				<div>
 					{# debut multer (***** image *****) #}
 					<h4 class="row mx-auto mb-4">
-					<strong>
-						<label id="fileImage" for="image">Choisir une image</label>
+						<strong>
+							<label id="fileImage" for="image">Choisir une image</label>
 						</strong>
 					</h4>
 					<p>
@@ -26,8 +26,8 @@
 				<div>
 					<label class="switch">Type plante</label>
 					<select name="planteType" id="planteType">
-						<option {% if plant.planteType == "exterieur" %}selected{% endif %} value="exterieur">exterieur</option>
-						<option {% if plant.planteType == "interieur" %}selected{% endif %} value="interieur">interieur</option>
+						<option {% if plant.planteType == "exterieur" %} selected {% endif %} value="exterieur">exterieur</option>
+						<option {% if plant.planteType == "interieur" %} selected {% endif %} value="interieur">interieur</option>
 					</select>
 				</div>
 				<br>
@@ -48,18 +48,24 @@
 						<label for="name">Arrosage</label>
 					</p>
 					<p>
-						<input type="text" name="watering" id="name" class="case" value={{plant.watering}}>
+						<select name="watering" id="">
+							<option value="1/sems">1/sems</option>
+							<option value="2/sems">2/sems</option>
+							<option value="1/mois">1/mois</option>
+							<option value="2/mois">2/mois</option>
+						</select>
+						
 					</p>
 					<p>
 						<label for="name">Ensoleillement</label>
 					</p>
 					<p>
-					<select name="exposure" id="exposure">
-						<option {% if plant.exposure == "soleil" %}selected{% endif %} value="soleil">Soleil</option>
-						<option {% if plant.exposure == "mi-ombre" %}selected{% endif %} value="mi-ombre">Mi ombre</option>
-						<option {% if plant.exposure == "ombre" %}selected{% endif %} value="ombre">Ombre</option>
+						<select name="exposure" id="exposure">
+							<option {% if plant.exposure == "soleil" %} selected {% endif %} value="soleil">Soleil</option>
+							<option {% if plant.exposure == "mi-ombre" %} selected {% endif %} value="mi-ombre">Mi ombre</option>
+							<option {% if plant.exposure == "ombre" %} selected {% endif %} value="ombre">Ombre</option>
 
-					</select>
+						</select>
 					</p>
 					<p>
 						<label for="name">Rempotage</label>
@@ -77,7 +83,7 @@
 						<label for="name">SOLUTION 1</label>
 					</p>
 					<p>
-						<input type="text" name="firstsolution" id="name" class="case" >
+						<input type="text" name="firstsolution" id="name" class="case">
 					</p>
 					<p>
 						<label for="name">BOBO 2</label>
@@ -105,7 +111,7 @@
 					<p>
 						<input type="text" name="thirdsolution" id="name" class="case">
 					</p>
-					
+
 				</div>
 				<input class="align-items-center mb-4" type="submit" value="Envoyer sur repertoire" class="btn btn-secondary">
 			</form>

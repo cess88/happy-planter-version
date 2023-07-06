@@ -20,6 +20,10 @@ app.use(session({
     saveUninitialized: false,
     cookie: { secure: false }
 }))
+app.use((req,res,next)=>{
+    res.locals = req.session;
+    next()
+})
 app.use(router)
 router.use(usersRouter)
 router.use(plantesRouter)

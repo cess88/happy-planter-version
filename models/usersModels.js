@@ -5,21 +5,27 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, "Nom obligatoire"]
     },
-    
+
     mail: {
         type: String,
         required: [true, "Mail obligatoire"]
     },
-    password:  {
+    password: {
         type: String,
         required: [true, "Password obligatoire"]
     },
-    role:{
-        type:String,
-        default:"user"
+    role: {
+        type: String,
+        default: "user"
     },
-    collections:  [{type: mongoose.Schema.Types.ObjectId, ref:"plantes"}]
-    
+    collections: [
+        {
+            plant: { type: mongoose.Schema.Types.ObjectId, ref: "plantes" },
+            date: { type: String }
+          }
+
+    ]
+
 })
 
 const usersModels = mongoose.model("users", userSchema)

@@ -1,0 +1,29 @@
+{% extends "../main.twig" %}
+{% block scriptHead %}
+	<script src='https://cdn.jsdelivr.net/npm/rrule@2.6.4/dist/es5/rrule.min.js'></script>
+
+	<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+	<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/rrule@6.1.8/index.global.min.js'></script>
+
+	<script src="/js/calendar.js"></script>
+{% endblock %}
+{% block stylesheet %}
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/calendar.css">
+
+{% endblock %}
+
+{% block main %}
+
+	<main>
+		<div id='calendar'></div>
+		<div id="dataWater" style="display: none" data-watering = '{{plant.watering}}'></div>
+
+	</main>
+
+{% endblock %}
+
+{% block footer %}
+
+	{% include "../layout/footer-home.twig" %}
+{% endblock %}

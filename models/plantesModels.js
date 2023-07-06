@@ -29,6 +29,7 @@ const planteSchema = new mongoose.Schema({
         type: String,
         required: [true, "type obligatoire"]
     },
+   
 
     planteBobos: [{ type: mongoose.Schema.Types.ObjectId, ref: "bobos" }],
 
