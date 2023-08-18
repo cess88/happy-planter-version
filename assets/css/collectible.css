@@ -22,15 +22,18 @@
     background-color: #D1D1BA;
     font-size: x-large;
     height: fit-content;
+    
 }
 
 .card-int {
     background-color: white;
+  
 
 }
 
 .card-ext {
     background-color: white;
+ 
 }
 
 
@@ -42,7 +45,8 @@
 
 .fond-exterior {
     background-color: #9FAF94;
-    margin-top: 20px
+    margin-top: 20px;
+    
 }
 .card-int{
     margin:auto
@@ -79,38 +83,52 @@
     background-color: #D1D1BA;
    
 }
-
+#buttons{
+    display: flex;
+    justify-content: space-around;
+    
+}
 .button-sup-int{
     border-radius: 0px 10px 0px 10px;
     background-color:#D1D1BA;
     color: red;
-    display: flex;
-    justify-content: center;  
+    
+    margin-right: 10px;
+    
   
 }
 .button-sup-ext{
     border-radius: 0px 10px 0px 10px;
     background-color: #9FAF94;
     color: red;
-    display: flex;
-    justify-content: center;  
+ 
   
 }
 .button-bobo-int{
     border-radius: 0px 10px 0px 10px;
     background-color:#D1D1BA;
     color: red;
-    display: flex;
-    justify-content: center; 
-    white-space: pre;  
 }
 .button-bobo-ext{
     border-radius: 0px 10px 0px 10px;
     background-color:#9FAF94;;
     color: red;
-    display: flex;
-    justify-content: center;
-    white-space: pre;  
+}
+
+.button-alerte-int{
+    border-radius: 0px 10px 0px 10px;
+    background-color:#D1D1BA;
+    color: red;
+ 
+    
+  
+}
+.button-alerte-ext{
+    border-radius: 0px 10px 0px 10px;
+    background-color:#9FAF94;;
+    color: red;
+  
+   
 }
 .button-valid{
     border-radius: 0px 10px 0px 10px;

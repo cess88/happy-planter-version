@@ -13,20 +13,9 @@
 				<article class="card-int row d-flex justify-content-around card-int col-12">
 					<div class="mb-3 my-3 fond-interior card">
 						<div class="card-body row">
-							<a href="/collectible?search={{interiorCard.plant.name}}" class="d-flex">
 								<div class="col-3 my-auto">
 									<img class="img-responsive" src="../images/plantes/{{interiorCard.plant.image}}" style="width:100%" alt="" class="imgCard">
-									<div class="button-sup mt-2">
-										<a href="deletePlant/{{interiorCard.plant.id}}">
-											<button class="button-sup-int mt-2" type="submit">Supprimer</button>
-										</a>
-										<a href="pharmacie/{{interiorCard.plant.id}}">
-											<button class="button-bobo-int mt-2" type="submit">Voir les bobos</button>
-										</a>
-										<a href="calendar/{{interiorCard.plant.id}}">
-											<button class="button-bobo-ext mt-2" type="submit">Alerte arrosage</button>
-										</a>
-									</div>
+									
 								</div>
 
 								<div class="col-9">
@@ -55,6 +44,17 @@
 								</div>
 							</a>
 						</div>
+						<div id="buttons" class="button-sup mb-2">
+										<a href="deletePlant/{{interiorCard.plant.id}}">
+											<button class="button-sup-int" type="submit">Supprimer</button>
+										</a>
+										<a href="pharmacie/{{interiorCard.plant.id}}">
+											<button class="button-bobo-int" type="submit">Voir les bobos</button>
+										</a>
+										<a href="calendar/{{interiorCard.plant.id}}">
+											<button class="button-alerte-int" type="submit">Alerte arrosage</button>
+										</a>
+									</div>
 					</div>
 				</article>
 
@@ -92,21 +92,10 @@
 				<article class="card-ext col-12">
 					<div class="mb-3 my-3 fond-exterior card">
 						<div class="card-body row">
-							<a href="/collectible?search={{exteriorCard.plant.name}}" class="d-flex">
 
 								<div class="col-3 my-auto">
 									<img class="img-responsive" src="../images/plantes/{{exteriorCard.plant.image}}" style="width:100%" alt="" class="imgCard">
-									<div class="button-sup mt-2">
-										<a href="deletePlant/{{exteriorCard.plant.id}}">
-											<button class="button-sup-ext mt-2" type="submit">Supprimer</button>
-										</a>
-										<a href="pharmacie/{{exteriorCard.plant.id}}">
-											<button class="button-bobo-ext mt-2" type="submit">Voir les bobos</button>
-										</a>
-										<a href="calendar/{{exteriorCard.plant.id}}">
-											<button class="button-bobo-ext mt-2" type="submit">Alerte arrosage</button>
-										</a>
-									</div>
+									
 								</div>
 								<div class="col-9">
 									<ul class="my-auto">
@@ -134,6 +123,17 @@
 								</div>
 							</a>
 						</div>
+						<div id="buttons" class="button-sup mb-2">
+										<a href="deletePlant/{{exteriorCard.plant.id}}">
+											<button class="button-sup-ext" type="submit">Supprimer</button>
+										</a>
+										<a href="pharmacie/{{exteriorCard.plant.id}}">
+											<button class="button-bobo-ext" type="submit">Voir les bobos</button>
+										</a>
+										<a href="calendar/{{exteriorCard.plant.id}}">
+											<button class="button-alerte-ext" type="submit">Alerte arrosage</button>
+										</a>
+									</div>
 					</div>
 				</article>
 			{% endfor %}

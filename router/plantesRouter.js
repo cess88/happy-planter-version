@@ -114,8 +114,8 @@ plantesRouter.post('/updatePlant/:id', adminGuard, upload.single('image'), async
     const firstBobo = new boboModels({ problem: req.body.firstbobo, solution: req.body.firstsolution })
     const secondBobo = new boboModels({ problem: req.body.secondbobo, solution: req.body.secondsolution })
     const thirdBobo = new boboModels({ problem: req.body.thirdbobo, solution: req.body.thirdsolution })
-    await plantesModels.updateOne({_id: req.params.id}, req.body)
-    await plantesModels.updateOne({_id: req.params.id}, {planteBobos: [firstBobo._id, secondBobo._id, thirdBobo._id]})
+    await plantesModels.updateOne({ _id: req.params.id }, req.body)
+    await plantesModels.updateOne({ _id: req.params.id }, { planteBobos: [firstBobo._id, secondBobo._id, thirdBobo._id] })
     firstBobo.save()
     secondBobo.save()
     thirdBobo.save()
@@ -141,9 +141,11 @@ plantesRouter.get('/collectible', authGuard, async (req, res) => {
           return obj
         }
       })
-      console.log(plant);
+
       if (plant == null) {
         error = "Vous n'avez pas cette plante dans votre collection !"
+      }else{
+        plant = plant.plant
       }
     }
     let interiorPlants = collections.filter(function (obj) {
@@ -177,7 +179,7 @@ plantesRouter.get('/addPlantToCollection/:id', authGuard, async (req, res) => {
     let arrayCollections = user.collections
     let obj = arrayCollections.find(o => o._id == req.params.id);
     if (!obj) {
-      await usersModels.updateOne({ _id: req.session.user },  { $push: { collections: { plant: req.params.id, date: currentDate } } })
+      await usersModels.updateOne({ _id: req.session.user }, { $push: { collections: { plant: req.params.id, date: currentDate } } })
       res.redirect('/collectible')
     } else {
       req.session.error = 'Vous avez déja cette plante dans votre collection.'
@@ -191,8 +193,8 @@ plantesRouter.get('/addPlantToCollection/:id', authGuard, async (req, res) => {
 
 plantesRouter.get('/deletePlant/:id', authGuard, async (req, res) => {
   try {
-    await usersModels.updateOne({ _id: req.session.user }, { $pull: { collections: req.params.id } })
-    res.redirect('/collectible')
+    await usersModels.updateOne({ _id: req.session.user },{ $pull: { collections: { plant: req.params.id } } });
+     res.redirect('/collectible')
   } catch (error) {
     console.log(error);
   }

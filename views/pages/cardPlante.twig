@@ -6,8 +6,6 @@
 {% endblock %}
 
 {% block main %}
-
-	
 		<div>
 			{% if plant.planteType == "interieur" %}
 				
@@ -15,9 +13,8 @@
 					<img src="../images/fond/interieur.jpg" alt="" class="img-fluid carteInterieur">
 					<div class="{% if plant.exposure == "soleil" %}emplacementIntSoleil {% endif %} {% if plant.exposure == "mi-ombre" %}emplacementIntMiOmbre {% endif %}{% if plant.exposure == "ombre" %}emplacementIntOmbre {% endif %}">
 						<div class="row col-2">
-							<img  src="../images/plantes/{{plant.image}}"  alt="" class="img-fluid ">
+							<img  src="../images/plantes/{{plant.image}}"  alt="" class="img-fluid ">	
 						</div>
-						<button class="button" type="submit">Alerte arrosage!!</button>
 					</div>
 				</div>
 			{% endif %}
@@ -28,8 +25,8 @@
 					<div class="{% if plant.exposure == "soleil" %}emplacementExtSoleil {% endif %} {% if plant.exposure == "mi-ombre" %}emplacementExtMiOmbre {% endif %}{% if plant.exposure == "ombre" %}emplacementExtOmbre {% endif %}">
 						<div class="row col-2">
 							<img  src="../images/plantes/{{plant.image}}" alt="" class="img-fluid ">
+							
 						</div>
-						<button class="button" type="submit">Alerte arrosage!!</button>
 					</div>
 				</div>
 			{% endif %}
